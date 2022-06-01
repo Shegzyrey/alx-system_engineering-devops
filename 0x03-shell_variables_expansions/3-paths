@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -d "$PATH/"* | wc -l
+exho $PATH | tr -s ':' '\n' | wc -l
