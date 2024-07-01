@@ -1,13 +1,6 @@
-# SSH client configuration
-file { '~/.ssh/config':
-    ensure  => file
-    content => @(EOF)
-HOST 54.237.23.215
-        IdentifyFile ~/.ssh/school
-        PrefferedAuthentications publickey
-        PasswordAuthentication no
-EOF
-    mode    => '0600'
-    owner   => 'ubuntu'
-    group   => 'ubuntu'
+# Changes SSH config file
+exec { 'echo':
+    path    => 'usr/bin:/bin',
+    command => 'echo "    IdentityFile ~/.ssh/school\n    PasswordAuthentication no" >> /etc/ssh/ssh_config',
+    returns => [0,1],
 }
