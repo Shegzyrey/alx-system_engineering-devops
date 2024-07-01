@@ -1,5 +1,5 @@
 # SSH client configuration
-file { '.ssh/config':
+file { '~/.ssh/config':
     ensure  => file
     content => @(EOF)
 HOST 54.237.23.215
