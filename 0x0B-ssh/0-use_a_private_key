@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# the scripts to connect to server using ssh
+
+ssh -i ~/.ssh/school ubuntu@54.237.23.215
