@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# the scripts to connect to server using ssh
+
+HOST 54.237.23.215
+    IdentifyFile ~/.ssh/school
+    PrefferedAuthentications publickey
+    PasswordAuthentication no
