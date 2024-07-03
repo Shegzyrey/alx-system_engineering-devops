@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
 # Update the package index
-sudo apt-get update
+sudo apt-get update -y
 
 # Install Nginx
 sudo apt-get install -y nginx
 
-suo chown -R ubuntu /var/www
 # Create an HTML file with "Hello World!" content
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 
