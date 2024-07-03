@@ -7,7 +7,7 @@ sudo apt-get update -y
 sudo apt-get install -y nginx
 
 # Create an HTML file with "Hello World!" content
-cat << EOF > /ect/nginx/sites-available/default
+cat <<EOF > /ect/nginx/sites-available/default
 server {
         listen 80;
         listen [::]:80;
