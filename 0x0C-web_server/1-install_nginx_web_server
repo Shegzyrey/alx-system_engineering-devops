@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
+# Install nginx on my webserver
 
-# Update the package index
 sudo apt-get update -y
-
-# Install Nginx
 sudo apt-get install -y nginx
 
-# Create an HTML file with "Hello World!" content
-cat <<EOF > /var/www/html/index.nginx-debian.html
-Hello World!
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+	listen 80;
+	listen [::]:80;
+	
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	location / {
+		return 200 'Hello World!';
+	}
+}
 EOF
 
-# Restart Nginx without using systemctl
+
 sudo service nginx restart
