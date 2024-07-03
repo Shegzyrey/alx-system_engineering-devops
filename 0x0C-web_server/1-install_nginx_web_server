@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Update the package index
+sudo apt-get update
+
+# Install Nginx
+sudo apt-get install -y nginx
+
+suo chown -R ubuntu /var/www
+# Create an HTML file with "Hello World!" content
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+# Restart Nginx without using systemctl
+sudo service nginx restart
