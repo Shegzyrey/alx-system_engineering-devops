@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
-ADD301_REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+# Install nginx on my webserver
 
 sudo apt-get update -y
 sudo apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+	listen 80;
+	listen [::]:80;
+	
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	location / {
+		return 200 'Hello World!';
+	}
+
+        rewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+}
+EOF
+
 sudo service nginx restart
